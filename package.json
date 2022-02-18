@@ -4,7 +4,7 @@
   "description": "",
   "license": "",
   "dependencies": {
-    "@clerk/remix": "^0.1.0-alpha.0",
+    "@clerk/remix": "^0.1.0-alpha.1",
     "@remix-run/react": "^1.2.1",
     "@remix-run/serve": "^1.2.1",
     "cross-env": "^7.0.3",
