@@ -1,18 +1,9 @@
 import type { MetaFunction } from "remix";
-import {
-  Link,
-  Links,
-  LiveReload,
-  LoaderFunction,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useLoaderData,
-} from "remix";
-import { ClerkProvider, SignedOut, UserButton } from "@clerk/remix";
+import { Links, LiveReload, LoaderFunction, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "remix";
+import { ClerkProvider } from "@clerk/remix";
 import { rootAuthLoader, WithClerkState } from "@clerk/remix/ssr.server";
 import { VisualWrapper } from "~/components/VisualWrapper";
+import { HeaderLinks } from "~/components/HeaderLinks";
 
 export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
@@ -56,29 +47,5 @@ export default function App() {
         </body>
       </html>
     </ClerkProvider>
-  );
-}
-
-function HeaderLinks() {
-  return (
-    <div>
-      <UserButton afterSignOutAllUrl="/" />
-      <ul>
-        <li>
-          <Link to="/">Index</Link>
-        </li>
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
-        <li>
-          <Link to="/profile/nested-page">Profile/nested-page</Link>
-        </li>
-        <SignedOut>
-          <li>
-            <Link to="/sign-in">Sign in</Link>
-          </li>
-        </SignedOut>
-      </ul>
-    </div>
   );
 }
