@@ -1,6 +1,6 @@
 import { useUser } from "@clerk/remix";
 import { getAuth } from "@clerk/remix/ssr.server";
-import { LoaderFunction, Outlet, useLoaderData } from "remix";
+import { LoaderFunction, Outlet, useCatch, useLoaderData } from "remix";
 
 import { VisualWrapper } from "~/components/VisualWrapper";
 
@@ -27,5 +27,15 @@ export default function Posts() {
       </pre>
       <Outlet />
     </VisualWrapper>
+  );
+}
+
+export function CatchBoundary() {
+  const caught = useCatch();
+  return (
+    <div>
+      <h1>Profile CatchBoundary</h1>
+      <pre>{JSON.stringify(caught)}</pre>
+    </div>
   );
 }
