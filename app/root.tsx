@@ -1,6 +1,6 @@
 import type { MetaFunction } from "remix";
 import { Links, LiveReload, LoaderFunction, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "remix";
-import { ConnectClerk } from "@clerk/remix";
+import { ConnectClerk, ConnectClerkCatchBoundary } from "@clerk/remix";
 import { rootAuthLoader } from "@clerk/remix/ssr.server";
 import { VisualWrapper } from "~/components/VisualWrapper";
 import { HeaderLinks } from "~/components/HeaderLinks";
@@ -46,4 +46,6 @@ function App() {
     </html>
   );
 }
-export default ConnectClerk(App, { frontendApi: "clerk.renewing.hermit-14.lcl.dev" });
+export default ConnectClerk(App);
+
+export const CatchBoundary = ConnectClerkCatchBoundary();
